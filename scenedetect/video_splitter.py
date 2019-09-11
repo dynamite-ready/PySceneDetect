@@ -157,7 +157,7 @@ def split_video_mkvmerge(input_video_paths, scene_list, output_file_prefix,
             'parts:%s' % ','.join(
                 ['%s-%s' % (start_time.get_timecode(), end_time.get_timecode())
                  for start_time, end_time in scene_list]),
-            ' +'.join(input_video_paths)]
+            input_video_paths]
         total_frames = scene_list[-1][1].get_frames() - scene_list[0][0].get_frames()
         processing_start_time = time.time()
         ret_val = subprocess.call(call_list)
